@@ -5,7 +5,13 @@ import {
   useContext,
 } from 'react';
 
+import PropTypes from 'prop-types'
+
 import { v4 as uuidv4 } from 'uuid';
+
+TodosProvider.propTypes = {
+  children: PropTypes.string.isRequired
+}
 
 const TodosContext = createContext(null);
 
