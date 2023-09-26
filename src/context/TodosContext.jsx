@@ -4,26 +4,23 @@ import {
   createContext,
   useContext,
 } from 'react';
-import PropTypes from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid';
 
 const TodosContext = createContext(null);
 
-TodosProvider.propTypes = {
-  children: PropTypes.string.isRequired
-}
-
 export const TodosProvider = ({ children }) => {
   const [todos, setTodos] = useState(getInitialTodos());
 
   function getInitialTodos() {
+    // getting stored items
     const temp = localStorage.getItem('todos');
     const savedTodos = JSON.parse(temp);
     return savedTodos || [];
   }
 
   useEffect(() => {
+    // storing todos items
     const temp = JSON.stringify(todos);
     localStorage.setItem('todos', temp);
   }, [todos]);

@@ -5,13 +5,7 @@ import {
   useEffect,
 } from 'react';
 
-import PropTypes from 'prop-types';
-
 const AuthContext = createContext(null);
-
-AuthProvider.propTypes = {
-  children: PropTypes.string.isRequired
-}
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(getUsername());
@@ -24,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    // storing user state
     const temp = JSON.stringify(user);
     localStorage.setItem('username', temp);
   }, [user]);

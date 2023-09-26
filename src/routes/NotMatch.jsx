@@ -1,10 +1,8 @@
 const NotMatch = () => {
-    return (
-      <div>
-        <p>Sorry, Page Not found!</p>
-      </div>
-    );
-  };
-
+  return (
+    <div>
+      <p>Not found!</p>
+    </div>
+  );
+};
 export default NotMatch;
-  
