@@ -6,14 +6,13 @@ import {
 } from 'react';
 import PropTypes from 'prop-types'
 
-
 const AuthContext = createContext(null);
 
-AuthProvider.propTypes = {
-  children: PropTypes.string.isRequired
+export const AuthProvider = ({ children }) => {
+  AuthProvider.propTypes = {
+  children: PropTypes.array.isRequired
 }
 
-export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(getUsername());
 
   function getUsername() {
@@ -31,8 +30,6 @@ export const AuthProvider = ({ children }) => {
 
   const login = (user) => setUser(user);
   const logout = () => setUser(null);
-
-
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

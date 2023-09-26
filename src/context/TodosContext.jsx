@@ -9,13 +9,13 @@ import PropTypes from 'prop-types'
 
 import { v4 as uuidv4 } from 'uuid';
 
-TodosProvider.propTypes = {
-  children: PropTypes.string.isRequired
-}
-
 const TodosContext = createContext(null);
 
 export const TodosProvider = ({ children }) => {
+  TodosProvider.propTypes = {
+  children: PropTypes.array.isRequired
+}
+
   const [todos, setTodos] = useState(getInitialTodos());
 
   function getInitialTodos() {
@@ -86,4 +86,5 @@ export const TodosProvider = ({ children }) => {
     </TodosContext.Provider>
   );
 };
+
 export const useTodosContext = () => useContext(TodosContext);

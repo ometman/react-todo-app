@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 
 import styles from '@/styles/Header.module.css';
+
 Header.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.node
 }
 
 const Header = (props) => {
@@ -12,7 +13,6 @@ const Header = (props) => {
     color: '#aeadad',
     textAlign: 'center',
   };
-
 
   return (
     <header style={headerStyle} className={styles.header}>
