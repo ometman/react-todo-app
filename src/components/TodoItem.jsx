@@ -1,9 +1,14 @@
 import { useState, useRef } from 'react';
 import { useTodosContext } from '@/context/TodosContext';
+import PropTypes from 'prop-types';
 import styles from '@/styles/TodoItem.module.css';
 
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
+
+TodoItem.propTypes = {
+  itemProp: PropTypes.string.isRequired
+}
 
 const TodoItem = ({ itemProp }) => {
   const [editing, setEditing] = useState(false);
