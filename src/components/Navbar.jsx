@@ -1,32 +1,24 @@
-import { useState, useRef } from "react";
-import { useOnClickOutside } from "./useOnClickOutside";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [ dropDown, setDropdown ] = useState('false')
-    const ref = useRef();
-
-    useOnClickOutside(ref, dropDown, () => setDropdown(false))
-
-    return (
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>
-            <button onClick={() => setDropdown ((prev) => !prev)}>
-              Services <span>&#8595;</span>
-            </button>
-            
-            {dropDown && (
-               <ul >  
-                <li>Design</li>
-                 <li>Development</li>
-                 </ul>
-            )}            
-          </li>
-        </ul>
-      </nav>
-    );
-  };
-  
+  return (
+    <nav className="navbar">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </ul>
+    </nav>
+  )
+};
 export default Navbar;
+
